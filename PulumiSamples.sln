@@ -3,6 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebappAndMsSql", "WebappAndMsSql", "{D8CBB3B4-DD6F-46A2-85BE-E4C176E1F60F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E40C2816-3CA8-4D8C-888C-BE5D245C7F9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebappAndMsSql.IaC", "WebappAndMsSql\src\IaC\WebappAndMsSql.IaC.csproj", "{18DB302D-AE4C-4EE9-AD4F-124E365E21D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebappAndMsSql.IaC.Test", "WebappAndMsSql\test\WebappAndMsSql.IaC.Test\WebappAndMsSql.IaC.Test.csproj", "{AAC171D6-8D46-4E26-B2D5-022B9D49A8C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +18,20 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18DB302D-AE4C-4EE9-AD4F-124E365E21D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18DB302D-AE4C-4EE9-AD4F-124E365E21D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18DB302D-AE4C-4EE9-AD4F-124E365E21D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18DB302D-AE4C-4EE9-AD4F-124E365E21D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC171D6-8D46-4E26-B2D5-022B9D49A8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC171D6-8D46-4E26-B2D5-022B9D49A8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC171D6-8D46-4E26-B2D5-022B9D49A8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC171D6-8D46-4E26-B2D5-022B9D49A8C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E40C2816-3CA8-4D8C-888C-BE5D245C7F9A} = {D8CBB3B4-DD6F-46A2-85BE-E4C176E1F60F}
+		{18DB302D-AE4C-4EE9-AD4F-124E365E21D3} = {E40C2816-3CA8-4D8C-888C-BE5D245C7F9A}
+		{AAC171D6-8D46-4E26-B2D5-022B9D49A8C8} = {D8CBB3B4-DD6F-46A2-85BE-E4C176E1F60F}
 	EndGlobalSection
 EndGlobal

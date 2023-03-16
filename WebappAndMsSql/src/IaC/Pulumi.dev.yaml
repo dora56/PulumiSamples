@@ -1,0 +1,3 @@
+config:
+  azure-native:location: JapanEast
+  azure-native:resourceName: hanaoka-app-dev
