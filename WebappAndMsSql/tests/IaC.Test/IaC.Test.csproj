@@ -6,6 +6,8 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>WebappAndMsSql.IaC.Test</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\IaC\WebappAndMsSql.IaC.csproj" />
+      <ProjectReference Include="..\..\src\IaC\IaC.csproj" />
     </ItemGroup>
 
 </Project>

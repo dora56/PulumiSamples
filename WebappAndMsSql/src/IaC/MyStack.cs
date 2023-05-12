@@ -1,4 +1,4 @@
-using WebappAndMsSql.IaC.Components;
+
 
 namespace WebappAndMsSql.IaC;
 
@@ -23,7 +23,7 @@ public class MyStack: Stack
             ResourceGroupName = resourceGroup.Name,
             LoginPass = loginPass,
         });
-
+        
         var webapps = new WebApps(resourceName, new AppsArgs
         {
             AdminName = adminName,
@@ -32,5 +32,6 @@ public class MyStack: Stack
             Location = location,
             LoginPass = loginPass
         });
+        
     }
 }

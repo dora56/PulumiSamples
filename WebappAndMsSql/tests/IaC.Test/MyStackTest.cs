@@ -5,10 +5,21 @@ using Resource = Pulumi.Resource;
 namespace WebappAndMsSql.IaC.Test;
 
 [TestFixture]
-public class DevStackTest
+public class MyStackTest
 {
-    private static Task<ImmutableArray<Resource>> TestAsync()
+    private static Task<ImmutableArray<Resource>> TestAsync(Dictionary<string, object>? config = null)
     {
+        if (config is not null)
+        {
+            var values = System.Text.Json.JsonSerializer.Serialize(config, new System.Text.Json.JsonSerializerOptions());
+
+            Environment.SetEnvironmentVariable("PULUMI_CONFIG", values);
+        }
+        else
+        {
+            Environment.SetEnvironmentVariable("PULUMI_CONFIG", "");
+        }
+        
         return Deployment.TestAsync<MyStack>(new Mocks(), new TestOptions {IsPreview = false});
     }
     
@@ -33,11 +44,13 @@ public class DevStackTest
     [Test]
     public async Task SingleSqlServerName()
     {
-        var resources = await TestAsync();
+        var config = new Dictionary<string, object>();
+        config.Add("azure-native:resourceName","testWeb");
+        var resources = await TestAsync(config);
 
         var sqlServers = resources.OfType<Server>().ToList();
         var name = await sqlServers.FirstOrDefault()!.Name.GetValueAsync();
-        name.Should().Be("sql-hanaokaapps");
+        name.Should().Be("sql-testWeb");
     }
     // Create SqlDatabase Test
     [Test]
@@ -52,10 +65,12 @@ public class DevStackTest
     [Test]
     public async Task SingleSqlDatabaseName()
     {
-        var resources = await TestAsync();
+        var config = new Dictionary<string, object>();
+        config.Add("azure-native:resourceName","testWeb");
+        var resources = await TestAsync(config);
 
         var sqlDatabases = resources.OfType<Database>().ToList();
         var name = await sqlDatabases.FirstOrDefault()!.Name.GetValueAsync();
-        name.Should().Be("sqldb-hanaokaapps");
+        name.Should().Be("sqldb-testWeb");
     }
 }
