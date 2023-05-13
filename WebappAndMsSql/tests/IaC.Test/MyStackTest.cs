@@ -37,6 +37,24 @@ public class MyStackTest
     }
     
     [Test]
+    public async Task SingleResourceGroupName()
+    {
+        // Arrange
+        var config = new Dictionary<string, object>
+        {
+            { "azure-native:resourceName", "testWeb" }
+        };
+        var resources = await TestAsync(config);
+        
+        // Act
+        var resourceGroups = resources.OfType<ResourceGroup>().ToList();
+        var name = await resourceGroups.FirstOrDefault()!.Name.GetValueAsync();
+        
+        // Assert
+        name.Should().Be("rg-testWeb");
+    }
+    
+    [Test]
     public async Task SingleSqlServerExists()
     {
         // Arrange
@@ -53,8 +71,10 @@ public class MyStackTest
     public async Task SingleSqlServerName()
     {
         // Arrange
-        var config = new Dictionary<string, object>();
-        config.Add("azure-native:resourceName","testWeb");
+        var config = new Dictionary<string, object>
+        {
+            { "azure-native:resourceName", "testWeb" }
+        };
         var resources = await TestAsync(config);
 
         // Act
@@ -82,8 +102,10 @@ public class MyStackTest
     public async Task SingleSqlDatabaseName()
     {
         // Arrange
-        var config = new Dictionary<string, object>();
-        config.Add("azure-native:resourceName","testWeb");
+        var config = new Dictionary<string, object>
+        {
+            { "azure-native:resourceName", "testWeb" }
+        };
         var resources = await TestAsync(config);
         
         // Act
@@ -111,8 +133,10 @@ public class MyStackTest
     public async Task SingleWebAppName()
     {
         // Arrange
-        var config = new Dictionary<string, object>();
-        config.Add("azure-native:resourceName","testWeb");
+        var config = new Dictionary<string, object>
+        {
+            { "azure-native:resourceName", "testWeb" }
+        };
         var resources = await TestAsync(config);
 
         // Act
