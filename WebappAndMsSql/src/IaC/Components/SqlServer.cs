@@ -1,4 +1,4 @@
-using Sql = Pulumi.AzureNative.Sql;
+using Sql = Pulumi.AzureNative.Sql.V20220801Preview;
 
 namespace WebappAndMsSql.IaC.Components;
 

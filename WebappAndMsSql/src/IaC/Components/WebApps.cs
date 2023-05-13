@@ -1,4 +1,6 @@
 using Pulumi.AzureNative.Insights;
+using Pulumi.AzureNative.Web.V20220901;
+using Pulumi.AzureNative.Web.V20220901.Inputs;
 
 
 namespace WebappAndMsSql.IaC.Components;
