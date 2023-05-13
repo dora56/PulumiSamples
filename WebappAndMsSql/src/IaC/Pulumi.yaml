@@ -1,3 +1,6 @@
 name: WebappAndMsSql
 runtime: dotnet
 description: Sample programs to build Web App and Sql Server in Azure
+config:
+  azure-native:location:
+    default: JapanEast
