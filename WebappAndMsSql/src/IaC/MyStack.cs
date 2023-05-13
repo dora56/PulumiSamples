@@ -1,11 +1,12 @@
-
-
 namespace WebappAndMsSql.IaC;
 
 public class MyStack: Stack
 {
     public MyStack()
     {
+        // Readme
+        Readme = Output.Create(System.IO.File.ReadAllText("./Pulumi.README.md"));
+        
         var adminName = "appAdmin";
         var loginPass = "P@ssw0rd!";
         var azureConfig = new Config("azure-native");
@@ -32,6 +33,9 @@ public class MyStack: Stack
             Location = location,
             LoginPass = loginPass
         });
-        
     }
+    
+    [Output]
+    public Output<string> Readme { get; set; }
+    
 }
